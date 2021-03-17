@@ -101,8 +101,5 @@ function androAiChatBot(
                     }
                 }
             });
-        }
-    }, 1000)
-        
-    
+        }, 1000) 
 }
