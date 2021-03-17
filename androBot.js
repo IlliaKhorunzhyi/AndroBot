@@ -13,9 +13,9 @@ function androAiChatBot(
           <i class="fas fa-play"></i>
         </span>
       </span>
-      <img id="placeholder" src="https://cxdojo.com/wp-content/uploads/2021/03/placeholder-scaled.jpeg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;border-radius: 50%;opacity: 0;pointer-events: none;">
+      <img id="placeholder" src="https://i.ibb.co/ZhJKk3t/placeholder.jpg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;border-radius: 50%;opacity: 0;pointer-events: none;">
       <div style="overflow:hidden;border-radius:50%;width:100%;height:100%;">
-          <video id="androvideo" poster="https://cxdojo.com/wp-content/uploads/2021/03/placeholder-scaled.jpeg" src="${video_url}" style="position: relative;left: -100%;top: -55%;width: 300%;height: 36rem;border-radius: 50%;padding: 0;margin: 0;line-height: 0;z-index: 1;pointer-events: none;background: url(https://storage.googleapis.com/dev-andro.appspot.com/aimient/poster2.jpg);"></video>
+          <video id="androvideo" poster="https://i.ibb.co/ZhJKk3t/placeholder.jpg" src="${video_url}" style="position: relative;left: -100%;top: -55%;width: 300%;height: 36rem;border-radius: 50%;padding: 0;margin: 0;line-height: 0;z-index: 1;pointer-events: none;background: url(https://storage.googleapis.com/dev-andro.appspot.com/aimient/poster2.jpg);"></video>
       </div>
       <span id="menu" style="opacity: 0;pointer-events: none;position: absolute;bottom: 0;left: -9rem;border-radius: 0.5rem;background: white;padding: 0.8rem 1.2rem 0.8rem 1.2rem;margin: 0;line-height: 1.6rem;box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);font-family: Roboto;transition: all 0.3s;">
         <a style="text-decoration: none; color:black;" href="${option_url_one}"><div id="option1" style="font-size: 1rem;padding: 0.2rem 0.8rem;border-radius: 0.5rem;cursor: pointer;background: #eeeeeec7;margin-bottom: 0.5rem;">${option_name_one}</div></a>
