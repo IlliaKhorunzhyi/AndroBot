@@ -6,7 +6,7 @@ function androAiChatBot(
     option_name_two
 ) {
 
-    setTimeout(function(){
+    window.addEventListener('load', function () {
             document.body.innerHTML += `
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
             <div class="andro" style="opacity: 0;position: fixed;bottom: 2.5rem;right: 2.5rem;width: 14rem;height: 14rem;border-radius: 50%;padding: 0;margin: 0;line-height: 0;border: 10px solid #ff74268f;z-index: 500;transition: all 0.3s;cursor: pointer;">
@@ -101,5 +101,5 @@ function androAiChatBot(
                     }
                 }
             });
-        }, 1000) 
+        }) 
 }
