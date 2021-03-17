@@ -9,6 +9,7 @@ function androAiChatBot(
 sleep(5000);
         
     document.body.innerHTML += `
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <div class="andro" style="opacity: 0;position: fixed;bottom: 2.5rem;right: 2.5rem;width: 14rem;height: 14rem;border-radius: 50%;padding: 0;margin: 0;line-height: 0;border: 10px solid #ff74268f;z-index: 500;transition: all 0.3s;cursor: pointer;">
       <span class="notification" style="position: absolute;right: 1rem;bottom: 11rem;z-index: 501;cursor: pointer;transition: all 0.1s;">
         <span class="badge" style="display: table-cell;overflow: hidden;min-width: 40px;height: 40px;font-size: 18px;font-weight: 700;border-radius: 100%;text-align: center;vertical-align: middle;background-color: #f85a3a;color: #fff;background-clip: padding-box;cursor: pointer;">
