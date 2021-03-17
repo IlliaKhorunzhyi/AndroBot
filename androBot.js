@@ -6,6 +6,8 @@ function androAiChatBot(
     option_name_two
 ) {
 
+sleep(5000);
+        
     document.body.innerHTML += `
     <div class="andro" style="opacity: 0;position: fixed;bottom: 2.5rem;right: 2.5rem;width: 14rem;height: 14rem;border-radius: 50%;padding: 0;margin: 0;line-height: 0;border: 10px solid #ff74268f;z-index: 500;transition: all 0.3s;cursor: pointer;">
       <span class="notification" style="position: absolute;right: 1rem;bottom: 11rem;z-index: 501;cursor: pointer;transition: all 0.1s;">
