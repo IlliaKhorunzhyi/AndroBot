@@ -366,7 +366,7 @@ function androAiChatBot(
       ) {
         if (!expanded && target.className != "badge") {
           video_container.style.height = "16rem";
-          video_container.style.width = "16.4rem";
+          video_container.style.width = "100%";
           video_container.style.borderRadius = ".5rem .5rem 0 0";
           andro.style.borderRadius = ".8rem";
           video.style.borderRadius = ".5rem .5rem 0 0";
@@ -383,7 +383,7 @@ function androAiChatBot(
           options.style.display = "block";
           expanded = true;
           placeholder.style.borderRadius = ".5rem .5rem 0 0";
-          placeholder.style.width = "15.9rem";
+          placeholder.style.width = "100%";
           placeholder.style.height = "16.4rem";
         } else if (expanded) {
           video_container.style.height = "100%";
