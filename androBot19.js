@@ -6,7 +6,7 @@ function androAiChatBot(
   option_name_two,
   text
 ) {
-    consple.log(video_url);
+    console.log(video_url);
   const placeholder_img = "https://i.ibb.co/ZhJKk3t/placeholder.jpg";
   const redirect_video =
     "https://storage.googleapis.com/dev-andro.appspot.com/videos/8M8ED83sOxbizXVgAn5L/161056838576.mp4";
