@@ -216,7 +216,7 @@ function androAiChatBot(
                   </span>
                   <img id="placeholder" src="${placeholder_img}">
                   <div id="video_container">
-                      <video id="andro" poster="${placeholder_img} src="${video_url}"></video>
+                      <video id="andro" poster="${placeholder_img}" src="${video_url}"></video>
                   </div>
                   <span id="menu">
                     <div id="option1">${option_name_one}</div>
