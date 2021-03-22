@@ -374,7 +374,7 @@ function androAiChatBot(
             video.style.borderRadius = ".5rem .5rem 0 0";
             video.style.top = "0px";
             andro.style.height = "32rem";
-            andro.style.width = "100%";
+            andro.style.width = "16rem";
             andro.style.background = "white";
             setTimeout(() => (video.style.height = "262px"), 500);
             andro.style.border = "5px solid #ff7426b8";
