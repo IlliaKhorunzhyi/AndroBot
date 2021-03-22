@@ -121,8 +121,8 @@ function androAiChatBot(
                   background: white;
                   padding: 1rem;
                   border-radius: 50%;
-                  width: 1.7rem;
-                  height: 1.7rem;
+                  width: 3.4rem;
+                  height: 3.4rem;
                   display: flex;
                   align-items: center;
                   justify-content: center;
