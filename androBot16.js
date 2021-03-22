@@ -1,16 +1,16 @@
 function androAiChatBot(
-    video_url,
-    option_url_one,
-    option_url_two,
-    option_name_one,
-    option_name_two,
-    text
-  )
-  {
-    const placeholder_img = 'https://i.ibb.co/ZhJKk3t/placeholder.jpg';
-    const redirect_video = "https://storage.googleapis.com/dev-andro.appspot.com/videos/8M8ED83sOxbizXVgAn5L/161056838576.mp4";
-    window.addEventListener("load", function () {
-      document.body.innerHTML += `
+  video_url,
+  option_url_one,
+  option_url_two,
+  option_name_one,
+  option_name_two,
+  text
+) {
+  const placeholder_img = "https://i.ibb.co/ZhJKk3t/placeholder.jpg";
+  const redirect_video =
+    "https://storage.googleapis.com/dev-andro.appspot.com/videos/8M8ED83sOxbizXVgAn5L/161056838576.mp4";
+  window.addEventListener("load", function () {
+    document.body.innerHTML += `
               <style>
               #placeholder {
                   position: absolute;
@@ -213,231 +213,221 @@ function androAiChatBot(
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
               <div class="andro">
                   <span class="andro-notification">
-                  <span class="badge"><i class="fas fa-play" aria-hidden="true"></i></span>
+                    <span class="badge"><i class="fas fa-play" aria-hidden="true"></i></span>
                   </span>
                   <img id="placeholder" src="${placeholder_img}">
                   <div id="video_container">
                       <video id="andro" poster="${placeholder_img} src="${video_url}"></video>
                   </div>
                   <span id="menu">
-                  <div id="option1">${option_name_one}</div>
-                      <div id="option2">${option_name_two}</div>
-                      </span>
-                      <span id="mic">
+                    <div id="option1">${option_name_one}</div>
+                    <div id="option2">${option_name_two}</div>
+                  </span>
+                  <span id="mic">
                       <i class="fas fa-microphone" aria-hidden="true"></i>
-                      </span>
-                      <div id="options">
+                  </span>
+                  <div id="options">
                       <div class="question">
                           ${text}
                       </div>
                   </div>
               </div>`;
-  
-      let recognition,
-        listening,
-        menuVisible,
-        expanded,
-        introPlayed,
-        playing1,
-        playing2;
-      const andro = document.querySelector(".andro");
-      const video = document.getElementById("andro");
-      const video_container = document.getElementById("video_container");
-      const placeholder = document.getElementById("placeholder");
-      const menu = document.querySelector("#menu");
-      const badge = document.querySelector(".andro-notification");
-      const mic = document.querySelector("#mic > i");
-      const options = document.getElementById("options");
-      let candidateUrl,
-        employerUrl,
-        changed_opacity = false;
-  
-      setTimeout(() => {
-        document.querySelector(".andro").style.opacity = 1;
-        var candidate = new XMLHttpRequest();
-        candidate.open(
-          "GET",
-          redirect_video,
-          true
-        );
-        candidate.responseType = "blob";
-        var employer = new XMLHttpRequest();
-        employer.open(
-          "GET",
-          redirect_video,
-          true
-        );
-        employer.responseType = "blob";
-        candidate.onload = function () {
-          if (this.status === 200) {
-            var videoBlob = this.response;
-            var url = URL.createObjectURL(videoBlob);
-            candidateUrl = url;
-          }
-        };
-        employer.onload = function () {
-          if (this.status === 200) {
-            var videoBlob = this.response;
-            var url = URL.createObjectURL(videoBlob);
-            employerUrl = url;
-          }
-        };
-        candidate.send();
-        employer.send();
-      }, 1500);
-      navigator.permissions
-        .query({ name: "microphone" })
-        .then((permissions) => {
-          window.SpeechRecognition =
-            window.webkitSpeechRecognition ||
-            window.SpeechRecognition ||
-            window.mozSpeechRecognition ||
-            window.msSpeechRecognition ||
-            window.oSpeechRecognition;
-          recognition = new window.SpeechRecognition();
-          recognition.lang = "en-US";
-          recognition.interimResults = true;
-          recognition.maxAlternatives = 10;
-          recognition.continuous = true;
-          recognition.onresult = (event) => {
-            if (event) {
-              let transcript;
-              for (
-                let i = event.resultIndex, len = event.results.length;
-                i < len;
-                i++
-              ) {
-                transcript = event.results[i][0].transcript;
-                if (transcript.includes(option_name_one)) {
-                  if (!changed_opacity) {
-                    changed_opacity = true;
-                    placeholder.style.opacity = 1;
-                    photographer();
-                  }
-                } else if (
-                  transcript.includes(option_name_two)
-                ) {
-                  if (!changed_opacity) {
-                    changed_opacity = true;
-                    placeholder.style.opacity = 1;
-                    organization();
-                  }
+
+    let recognition,
+      listening,
+      menuVisible,
+      expanded,
+      introPlayed,
+      playing1,
+      playing2;
+    const andro = document.querySelector(".andro");
+    const video = document.getElementById("andro");
+    const video_container = document.getElementById("video_container");
+    const placeholder = document.getElementById("placeholder");
+    const menu = document.querySelector("#menu");
+    const badge = document.querySelector(".andro-notification");
+    const mic = document.querySelector("#mic > i");
+    const options = document.getElementById("options");
+    let candidateUrl,
+      employerUrl,
+      changed_opacity = false;
+
+    setTimeout(() => {
+      document.querySelector(".andro").style.opacity = 1;
+      var candidate = new XMLHttpRequest();
+      candidate.open("GET", redirect_video, true);
+      candidate.responseType = "blob";
+      var employer = new XMLHttpRequest();
+      employer.open("GET", redirect_video, true);
+      employer.responseType = "blob";
+      candidate.onload = function () {
+        if (this.status === 200) {
+          var videoBlob = this.response;
+          var url = URL.createObjectURL(videoBlob);
+          candidateUrl = url;
+        }
+      };
+      employer.onload = function () {
+        if (this.status === 200) {
+          var videoBlob = this.response;
+          var url = URL.createObjectURL(videoBlob);
+          employerUrl = url;
+        }
+      };
+      candidate.send();
+      employer.send();
+    }, 1500);
+    navigator.permissions
+      .query({ name: "microphone" })
+      .then((permissions) => {
+        window.SpeechRecognition =
+          window.webkitSpeechRecognition ||
+          window.SpeechRecognition ||
+          window.mozSpeechRecognition ||
+          window.msSpeechRecognition ||
+          window.oSpeechRecognition;
+        recognition = new window.SpeechRecognition();
+        recognition.lang = "en-US";
+        recognition.interimResults = true;
+        recognition.maxAlternatives = 10;
+        recognition.continuous = true;
+        recognition.onresult = (event) => {
+          if (event) {
+            let transcript;
+            for (
+              let i = event.resultIndex, len = event.results.length;
+              i < len;
+              i++
+            ) {
+              transcript = event.results[i][0].transcript;
+              if (transcript.includes(option_name_one)) {
+                if (!changed_opacity) {
+                  changed_opacity = true;
+                  placeholder.style.opacity = 1;
+                  photographer();
+                }
+              } else if (transcript.includes(option_name_two)) {
+                if (!changed_opacity) {
+                  changed_opacity = true;
+                  placeholder.style.opacity = 1;
+                  organization();
                 }
               }
             }
-          };
-        })
-        .catch(() => alert("Not enough permissions to access microphone!"));
-      document
-        .querySelector(".andro-notification")
-        .addEventListener("click", () => {
-          if (!introPlayed) {
-            video.play();
-            introPlayed = true;
           }
-          if (menuVisible) {
-            menu.style.opacity = 0;
-            menu.style.pointerEvents = "none";
-            menuVisible = false;
-          } else {
-            menu.style.opacity = 1;
-            menu.style.pointerEvents = "all";
-            menuVisible = true;
-          }
-        });
-      document.getElementById("mic").addEventListener("click", () => {
-        if (listening) {
-          recognition.stop();
-          if (mic) mic.style.color = "#969696";
-          listening = false;
+        };
+      })
+      .catch(() => alert("Not enough permissions to access microphone!"));
+    document
+      .querySelector(".andro-notification")
+      .addEventListener("click", () => {
+        if (!introPlayed) {
+          video.play();
+          introPlayed = true;
+        }
+        if (menuVisible) {
+          menu.style.opacity = 0;
+          menu.style.pointerEvents = "none";
+          menuVisible = false;
         } else {
-          try {
-            recognition && recognition.start();
-            listening = true;
-            if (mic) mic.style.color = "#24b39e";
-          } catch (e) {
-            console.log(`Failed to start: ${e}`);
-          }
+          menu.style.opacity = 1;
+          menu.style.pointerEvents = "all";
+          menuVisible = true;
         }
       });
-      andro.addEventListener("click", ({ target }) => {
-        if (
-          target.id != "mic" &&
-          !target.className.includes("fas") &&
-          !target.id.includes("option")
-        ) {
-          if (!expanded && target.className != "badge") {
-            video_container.style.height = "16rem";
-            video_container.style.width = "100%";
-            video_container.style.borderRadius = ".5rem .5rem 0 0";
-            andro.style.borderRadius = ".8rem";
-            video.style.borderRadius = ".5rem .5rem 0 0";
-            video.style.top = "0px";
-            andro.style.height = "32rem";
-            andro.style.width = "16rem";
-            andro.style.background = "white";
-            setTimeout(() => (video.style.height = "262px"), 500);
-            andro.style.border = "5px solid #ff7426b8";
-            badge.style.opacity = 0;
-            menu.style.opacity = 1;
-            menu.style.pointerEvents = "all";
-            options.appendChild(menu);
-            options.style.display = "block";
-            expanded = true;
-            placeholder.style.borderRadius = ".5rem .5rem 0 0";
-            placeholder.style.width = "100%";
-            placeholder.style.height = "16.4rem";
-          } else if (expanded) {
-            video_container.style.height = "100%";
-            video_container.style.width = "100%";
-            video_container.style.borderRadius = "50%";
-            video.style.top = "-50%";
-            andro.style.borderRadius = "50%";
-            video.style.borderRadius = "50%";
-            andro.style.height = "14rem";
-            andro.style.width = "14rem";
-            andro.style.border = "10px solid #ff7426b8";
-            video.style.height = null;
-            expanded = false;
-            options.style.display = "none";
-            andro.appendChild(menu);
-            setTimeout(() => (badge.style.opacity = 1), 500);
-            menu.style.opacity = 0;
-            menu.style.pointerEvents = "none";
-          }
-        } else if (target.id.includes("option")) {
-          if (target.id == "option1") {
-            placeholder.style.opacity = 1;
-            photographer();
-          } else if (target.id == "option2") {
-            placeholder.style.opacity = 1;
-            organization();
-          }
-        }
-      });
-      function photographer() {
-        if (!playing1) {
-          video.src = candidateUrl;
-          video.play().then(() => {
-            placeholder.style.opacity = 0;
-            playing1 = true;
-          });
-          video.onended = () => {
-            window.location.href = option_url_one;
-          };
-        }
-      }
-      function organization() {
-        if (!playing2) {
-          video.src = employerUrl;
-          video.play().then(() => {
-            placeholder.style.opacity = 0;
-            playing2 = true;
-          });
-          video.onended = () => {
-            window.location.href = option_url_two;
-          };
+    document.getElementById("mic").addEventListener("click", () => {
+      if (listening) {
+        recognition.stop();
+        if (mic) mic.style.color = "#969696";
+        listening = false;
+      } else {
+        try {
+          recognition && recognition.start();
+          listening = true;
+          if (mic) mic.style.color = "#24b39e";
+        } catch (e) {
+          console.log(`Failed to start: ${e}`);
         }
       }
     });
-  }
+    andro.addEventListener("click", ({ target }) => {
+      if (
+        target.id != "mic" &&
+        !target.className.includes("fas") &&
+        !target.id.includes("option")
+      ) {
+        if (!expanded && target.className != "badge") {
+          video_container.style.height = "16rem";
+          video_container.style.width = "100%";
+          video_container.style.borderRadius = ".5rem .5rem 0 0";
+          andro.style.borderRadius = ".8rem";
+          video.style.borderRadius = ".5rem .5rem 0 0";
+          video.style.top = "0px";
+          andro.style.height = "32rem";
+          andro.style.width = "16rem";
+          andro.style.background = "white";
+          setTimeout(() => (video.style.height = "262px"), 500);
+          andro.style.border = "5px solid #ff7426b8";
+          badge.style.opacity = 0;
+          menu.style.opacity = 1;
+          menu.style.pointerEvents = "all";
+          options.appendChild(menu);
+          options.style.display = "block";
+          expanded = true;
+          placeholder.style.borderRadius = ".5rem .5rem 0 0";
+          placeholder.style.width = "100%";
+          placeholder.style.height = "16.4rem";
+        } else if (expanded) {
+          video_container.style.height = "100%";
+          video_container.style.width = "100%";
+          video_container.style.borderRadius = "50%";
+          video.style.top = "-50%";
+          andro.style.borderRadius = "50%";
+          video.style.borderRadius = "50%";
+          andro.style.height = "14rem";
+          andro.style.width = "14rem";
+          andro.style.border = "10px solid #ff7426b8";
+          video.style.height = null;
+          expanded = false;
+          options.style.display = "none";
+          andro.appendChild(menu);
+          setTimeout(() => (badge.style.opacity = 1), 500);
+          menu.style.opacity = 0;
+          menu.style.pointerEvents = "none";
+        }
+      } else if (target.id.includes("option")) {
+        if (target.id == "option1") {
+          placeholder.style.opacity = 1;
+          photographer();
+        } else if (target.id == "option2") {
+          placeholder.style.opacity = 1;
+          organization();
+        }
+      }
+    });
+    function photographer() {
+      if (!playing1) {
+        video.src = candidateUrl;
+        video.play().then(() => {
+          placeholder.style.opacity = 0;
+          playing1 = true;
+        });
+        video.onended = () => {
+          window.location.href = option_url_one;
+        };
+      }
+    }
+    function organization() {
+      if (!playing2) {
+        video.src = employerUrl;
+        video.play().then(() => {
+          placeholder.style.opacity = 0;
+          playing2 = true;
+        });
+        video.onended = () => {
+          window.location.href = option_url_two;
+        };
+      }
+    }
+  });
+}
