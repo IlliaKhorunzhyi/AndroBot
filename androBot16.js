@@ -114,15 +114,13 @@ function androAiChatBot(
               }
               .andro > #menu > div:hover {
                   background: #ff742629;
-              }
-              
+              }     
               #mic {
                   position: absolute;
                   bottom: 0;
                   right: 0;
                   z-index: 501;
                   background: white;
-                  padding: 1rem;
                   border-radius: 50%;
                   width: 3.4rem;
                   height: 3.4rem;
